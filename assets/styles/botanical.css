@@ -1,0 +1,197 @@
+/* MEDILEAF.AI — Exact Botanical Green-and-White Design System + Fixed Desktop Sidebar */
+
+:root {
+  --ml-forest: #053821;
+  --ml-dark: #042B19;
+  --ml-primary: #13823D;
+  --ml-lime: #9AE66E;
+  --ml-leaf: #43A047;
+  --ml-soft-green: #E8F5E9;
+  --ml-bg: #F6FAF5;
+  --ml-white: #FFFFFF;
+  --ml-text: #18352A;
+  --ml-muted: #68796F;
+  --ml-amber: #F4B740;
+  --ml-error: #E53935;
+}
+
+.stApp {
+  background-color: var(--ml-bg);
+  color: var(--ml-text);
+  font-family: "Plus Jakarta Sans", "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* CRITICAL FIX: Permanently visible fixed Forest Green Sidebar on Desktop/Laptop */
+@media (min-width: 768px) {
+  section[data-testid="stSidebar"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 265px !important;
+    min-width: 265px !important;
+    max-width: 265px !important;
+    transform: none !important;
+    visibility: visible !important;
+    display: flex !important;
+    z-index: 999 !important;
+  }
+
+  /* Hide collapse toggle on desktop so sidebar never collapses */
+  [data-testid="stSidebarCollapseButton"],
+  button[aria-label="Close sidebar"],
+  [data-testid="collapsedControl"] {
+    display: none !important;
+  }
+
+  /* Push main content cleanly to the right of fixed 265px sidebar */
+  section[data-testid="stMain"] {
+    margin-left: 265px !important;
+    width: calc(100% - 265px) !important;
+  }
+
+  .main .block-container {
+    padding-top: 1.5rem !important;
+    max-width: 1380px !important;
+  }
+}
+
+section[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, #053821 0%, #042B19 100%) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+section[data-testid="stSidebar"] * {
+  color: #ECFDF5 !important;
+}
+
+section[data-testid="stSidebar"] .stButton > button {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: #E2EFE8 !important;
+  font-weight: 500;
+  text-align: left;
+  justify-content: flex-start;
+  padding: 0.68rem 0.95rem;
+  transition: background-color 180ms cubic-bezier(0.16, 1, 0.3, 1), transform 180ms ease;
+}
+
+section[data-testid="stSidebar"] .stButton > button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateX(2px);
+}
+
+/* Active Sidebar Item: Lime-Green Highlight matching reference screenshots */
+section[data-testid="stSidebar"] .stButton > button[kind="primary"] {
+  background: linear-gradient(90deg, #9AE66E 0%, #7ED957 100%) !important;
+  color: #053821 !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+section[data-testid="stSidebar"] .stButton > button[kind="primary"] * {
+  color: #053821 !important;
+}
+
+/* Primary Action Buttons */
+.stButton > button[kind="primary"] {
+  background: linear-gradient(90deg, #168A41 0%, #0E6A30 100%);
+  border: none;
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-weight: 600;
+  transition: transform 180ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 180ms ease;
+}
+
+.stButton > button[kind="primary"]:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(19, 130, 61, 0.25);
+}
+
+/* Dark Emerald Botanical Hero Banner */
+.medileaf-hero {
+  background: linear-gradient(125deg, #053821 0%, #0A5331 58%, #106A3E 100%);
+  border-radius: 18px;
+  padding: 1.75rem 2rem;
+  color: #FFFFFF;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 10px 28px rgba(5, 56, 33, 0.14);
+}
+
+.medileaf-hero h1, .medileaf-hero h2 {
+  color: #FFFFFF;
+  margin: 0.25rem 0;
+}
+
+.medileaf-hero .lime-accent {
+  color: #9AE66E;
+}
+
+/* Clean Botanical Cards */
+.medileaf-card {
+  background: #FFFFFF;
+  border: 1px solid #E2ECE4;
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem;
+  box-shadow: 0 2px 10px rgba(6, 78, 50, 0.04);
+  transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 200ms ease;
+}
+
+.medileaf-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(6, 78, 50, 0.08);
+}
+
+.medileaf-metric-val {
+  font-family: "JetBrains Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #18352A;
+}
+
+.medileaf-metric-label {
+  font-size: 0.85rem;
+  color: #68796F;
+}
+
+.medileaf-uncertain-box {
+  background: #FFF8EB;
+  border: 1px solid #F6D897;
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+}
+
+.medileaf-accepted-box {
+  background: #F1FAF3;
+  border: 1px solid #BFE3CA;
+  border-radius: 14px;
+  padding: 1.25rem 1.4rem;
+}
+
+.medileaf-disclaimer {
+  background: #F4F8F2;
+  border: 1px solid #DCE7DE;
+  border-radius: 12px;
+  padding: 0.9rem 1.1rem;
+  font-size: 0.84rem;
+  color: #465B50;
+}
+
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-enter {
+  animation: fadeSlideUp 280ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-enter, .medileaf-card, .stButton > button {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

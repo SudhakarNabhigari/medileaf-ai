@@ -1,0 +1,50 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --ml-forest: #064E32;
+    --ml-dark: #073D2B;
+    --ml-primary: #13823D;
+    --ml-leaf: #43A047;
+    --ml-soft: #E8F5E9;
+    --ml-bg: #F6FAF5;
+    --ml-text: #18352A;
+    --ml-muted: #68796F;
+  }
+
+  body {
+    font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--ml-bg);
+    color: var(--ml-text);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: "Plus Jakarta Sans", "DM Sans", sans-serif;
+  }
+
+  .font-mono-num {
+    font-family: "JetBrains Mono", monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@keyframes leafSway {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(2deg);
+  }
+}
+
+.leaf-float {
+  animation: leafSway 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .leaf-float {
+    animation: none !important;
+  }
+}

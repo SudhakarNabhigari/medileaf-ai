@@ -1,0 +1,8 @@
+{
+  "name": "MEDILEAF.AI",
+  "description": "Medicinal-Leaf Identifier with a Reject Option — Computer Vision platform powered by PyTorch ResNet50 and confidence-based abstention.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
